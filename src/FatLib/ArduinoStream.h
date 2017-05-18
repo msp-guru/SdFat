@@ -50,7 +50,7 @@ class ArduinoInStream : public ibufstream {
     uint32_t t;
     m_line[0] = '\0';
     while (!m_hw->available()) {
-      yield();
+      SysCall::yield();
     }
 
     while (1) {

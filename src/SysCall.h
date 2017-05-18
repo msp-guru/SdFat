@@ -68,6 +68,8 @@ inline void SysCall::yield() {
   // Avoid ESP8266 bug
   delay(0);
 }
+#elif defined(ENERGIA) // defined if running ENERGIA - needs to be before ARDUINO
+inline void SysCall::yield() {}
 #elif defined(ARDUINO)
 inline void SysCall::yield() {
   // Use the external Arduino yield() function.
